@@ -38,6 +38,7 @@ def run(config_path):
             os.makedirs(path, exist_ok=True)
             torch.save(model.to('cpu').state_dict(), params.save_path)
             model.to(device)
+            best_test_acc = test_acc
         # Record Learning Curve
         train_accs.append(train_acc)
         test_accs.append(test_acc)

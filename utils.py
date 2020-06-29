@@ -11,12 +11,11 @@ def get_models(model_name):
 def get_dataloader(dataset_name):
     trainloader, testloader = None, None
     if dataset_name == 'cifar10':
-
         train_transform = transforms.Compose([
             transforms.RandomCrop(32, padding=4),
             transforms.RandomHorizontalFlip(),
             transforms.ToTensor()
-            ])
+        ])
 
         test_transform = transforms.Compose([
                 transforms.ToTensor()

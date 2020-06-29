@@ -11,7 +11,7 @@ def train(loader, model, optimizer, criterion, device):
         optimizer.zero_grad()
 
         outputs = model(x)
-        predicts = torch.argmax(outputs, 1)
+        predicts = torch.argmax(outputs, 1).detach()
         corrects += (predicts == y).sum()
 
         loss = criterion(outputs, y)
@@ -29,7 +29,7 @@ def test(loader, model, device):
         y = y.to(device).long()
 
         outputs = model(x)
-        predicts = torch.argmax(outputs, 1)
+        predicts = torch.argmax(outputs, 1).detach()
         corrects += (predicts == y).sum()
 
     return float(corrects)/float(len(loader.dataset))
