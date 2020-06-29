@@ -21,7 +21,7 @@ def train(loader, model, optimizer, criterion, device):
     return float(corrects)/float(len(loader.dataset))
 
 
-def tset(loader, model, device):
+def test(loader, model, device):
     model.eval()
     corrects = 0
     for x,y in loader:
